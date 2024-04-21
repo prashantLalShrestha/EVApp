@@ -1,3 +1,10 @@
+using_bundler = defined? Bundler
+unless using_bundler
+  puts "\nPlease re-run using the following command:".red
+  puts "- `bundle exec pod install`: Installs Cocoapods dependencies directly using bundler\n\n"
+  exit(1)
+end
+
 # Resolve react_native_pods.rb with node to allow for hoisting
 require Pod::Executable.execute_command('node', ['-p',
   'require.resolve(

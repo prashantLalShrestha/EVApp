@@ -10,7 +10,7 @@
     "create-appicon-help": "iconset create --help",
     "lint": "eslint .",
     "lint:fix": "yarn lint --fix",
-    "ios": "react-native run-ios",
+    "ios": "react-native run-ios --mode Debug",
     "install:pods": "cd ios && bundle exec pod install",
     "postinstall": "node ./bin/postInstall",
     "start": "node ./scripts/start.js",

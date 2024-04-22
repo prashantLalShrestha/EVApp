@@ -1,15 +1,11 @@
-import React, { useEffect, useState } from 'react'
 import type { FC } from 'react'
+import React, { useEffect, useState } from 'react'
 import { SafeAreaView, Switch, Text, View } from 'react-native'
 
-import {
-  ThemeProvider,
-  createThemedStyles,
-  useTheme,
-  useThemedStyles,
-} from './theme'
+import { Providers } from './Providers'
 import { localeSetup, translate } from './locales'
-import R, { translations, AppTheme } from './res'
+import R, { translations } from './res'
+import { createThemedStyles, useTheme, useThemedStyles } from './theme'
 
 const AppView: FC = () => {
   const styles = useThemedStyles(stylesCreator)
@@ -57,9 +53,9 @@ const App: FC = () => {
   }, [])
 
   return isReady === true ? (
-    <ThemeProvider theme={AppTheme()}>
+    <Providers>
       <AppView />
-    </ThemeProvider>
+    </Providers>
   ) : null
 }
 

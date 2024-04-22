@@ -8,6 +8,8 @@ import {
   useTheme,
   useThemedStyles,
 } from './theme'
+import { localeSetup, translate } from './locales'
+import R, { translations } from './res'
 
 const AppView: FC = () => {
   const styles = useThemedStyles(stylesCreator)
@@ -25,7 +27,7 @@ const AppView: FC = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.row}>
-        <Text style={styles.label}>Enable Dark Mode:</Text>
+        <Text style={styles.label}>{translate(R.strings.themeMenu.label)}</Text>
         <Switch
           trackColor={{
             false: theme.colors.primaryVariant,
@@ -42,11 +44,23 @@ const AppView: FC = () => {
 }
 
 const App: FC = () => {
-  return (
+  const [isReady, setIsReady] = useState(false)
+
+  useEffect(() => {
+    async function appSetup() {
+      await localeSetup(translations, 'en')
+
+      setIsReady(true)
+    }
+
+    appSetup()
+  }, [])
+
+  return isReady === true ? (
     <ThemeProvider>
       <AppView />
     </ThemeProvider>
-  )
+  ) : null
 }
 
 export const stylesCreator = createThemedStyles(

@@ -9,8 +9,7 @@ import {
   useThemedStyles,
 } from './theme'
 import { localeSetup, translate } from './locales'
-import R, { translations } from './res'
-import AppTheme from './res/src/themes'
+import R, { translations, AppTheme } from './res'
 
 const AppView: FC = () => {
   const styles = useThemedStyles(stylesCreator)

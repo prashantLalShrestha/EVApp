@@ -10,4 +10,12 @@ export interface Theme {
   typography: Typography
 }
 
+export interface ThemeType {
+  borderRaduis: BorderRadius
+  lightColorPalette: Colors
+  darkColorPalette: Colors
+  sizings: Sizings
+  typography: Typography
+}
+
 export type ThemeName = 'dark' | 'light'

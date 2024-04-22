@@ -7,7 +7,7 @@ const execPromise = util.promisify(exec)
 const convert = async () => {
   const ROOT_DIR = resolve(__dirname, '../..')
   const path = `${ROOT_DIR}/app/res/assets/images`
-  const scriptPath = `${ROOT_DIR}/scripts/webp/webp-converter.sh`
+  const scriptPath = `${ROOT_DIR}/scripts/res/webp-converter.sh`
 
   console.log('[Design] Converting png images to webp started')
 
@@ -16,4 +16,4 @@ const convert = async () => {
   console.log('[Design] Converting png images to webp completed')
 }
 
-convert()
+module.exports.convert = convert

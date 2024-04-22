@@ -1,10 +1,9 @@
 import type { ReactNode } from 'react'
 
-import { Theme, ThemeName } from '@/theme'
+import { ThemeName, ThemeType } from '@/theme'
 
 export interface ThemeProviderProps {
   themeName?: ThemeName
-  lightTheme?: Theme
-  darkTheme?: Theme
+  theme?: ThemeType
   children: ReactNode
 }

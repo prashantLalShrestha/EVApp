@@ -2,19 +2,17 @@ import React, { memo, useEffect, useMemo, useState } from 'react'
 import { StatusBar, StatusBarStyle, useColorScheme } from 'react-native'
 
 import {
+  Theme,
   themeContext as ThemeContext,
   ThemeName,
   createTheme,
-  defaultDarkColorPalette,
-  defaultLightColorPalette,
 } from '@/theme'
 
 import type { ThemeProviderProps } from './ThemeProvider.types'
 
 const ThemeProviderComponent = ({
   themeName: _providedThemeName,
-  lightTheme = createTheme({ colors: defaultLightColorPalette }),
-  darkTheme = createTheme({ colors: defaultDarkColorPalette }),
+  theme = createTheme(),
   children,
 }: ThemeProviderProps) => {
   const colorScheme = useColorScheme()
@@ -24,6 +22,26 @@ const ThemeProviderComponent = ({
   )
   const [barStyle, setBarStyle] = useState<StatusBarStyle>(
     themeName === 'dark' ? 'light-content' : 'dark-content',
+  )
+
+  const lightTheme: Theme = useMemo(
+    () => ({
+      borderRaduis: theme.borderRaduis,
+      colors: theme.lightColorPalette,
+      sizings: theme.sizings,
+      typography: theme.typography,
+    }),
+    [theme],
+  )
+
+  const darkTheme: Theme = useMemo(
+    () => ({
+      borderRaduis: theme.borderRaduis,
+      colors: theme.darkColorPalette,
+      sizings: theme.sizings,
+      typography: theme.typography,
+    }),
+    [theme],
   )
 
   const themeValue = useMemo(

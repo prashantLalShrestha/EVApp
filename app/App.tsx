@@ -10,6 +10,7 @@ import {
 } from './theme'
 import { localeSetup, translate } from './locales'
 import R, { translations } from './res'
+import AppTheme from './res/src/themes'
 
 const AppView: FC = () => {
   const styles = useThemedStyles(stylesCreator)
@@ -57,7 +58,7 @@ const App: FC = () => {
   }, [])
 
   return isReady === true ? (
-    <ThemeProvider>
+    <ThemeProvider theme={AppTheme()}>
       <AppView />
     </ThemeProvider>
   ) : null

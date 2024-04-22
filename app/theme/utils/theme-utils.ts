@@ -2,10 +2,10 @@ import { StyleSheet } from 'react-native'
 
 import { Theme } from '@/theme'
 
-import { defaultLightColorPalette } from './colorUtils'
-import { createTypography } from './typographyUtils'
-import { defaultBorderRadius } from './borderRadiusUtils'
-import { defaultSizings } from './sizingsUtils'
+import { defaultLightColorPalette } from './color-utils'
+import { createTypography } from './typography-utils'
+import { defaultBorderRadius } from './borderRadius-utils'
+import { defaultSizings } from './sizings-utils'
 
 export const createThemedStyles =
   <T extends StyleSheet.NamedStyles<T> | StyleSheet.NamedStyles<any>>(

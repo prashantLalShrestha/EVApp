@@ -9,7 +9,7 @@ export const lightColorPalette = (colors: Partial<Colors> = {}): Colors => {
 
 export const darkColorPalette = (colors: Partial<Colors> = {}): Colors => {
   return {
-    ...defaultLightColorPalette,
+    ...defaultDarkColorPalette,
     ...colors,
   }
 }
